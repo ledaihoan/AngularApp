@@ -1,0 +1,35 @@
+<div class="container">
+  <h4>ngStyle: [ngStyle]=styleObject</h4>
+  <p [ngStyle]="{color: 'white', 'background-color': 'blue'}">
+    Fixed white text on blue background
+  </p>
+  <form class="ui medium form segment">
+    <h4 class="ui header">Enter some style attribute and apply</h4>
+    <div class="field">
+      <label for="color">Color:</label>
+      <input type="text" id="color" name="color" #colorinput>
+    </div>
+    <div class="field">
+      <label for="fontSize">Font Size:</label>
+      <input id="fontSize" type="text" name="fontSize" #fontinput>
+    </div>
+    <button class="ui positive right floated button" (click)="applyStyle(colorinput.value, fontinput.value)">
+      Apply Style
+    </button>
+  </form>
+
+  <h4 class="ui horizontal divider header">
+    ngStyle with object property from variable
+  </h4>
+  <div>
+  <span [ngStyle]="{color: color, 'font-size': fontSize}">
+  {{ color }} text
+  </span>
+  </div>
+  <h4 class="ui horizontal divider header">
+    style from variable
+  </h4>
+  <div [style.background-color]="color" style="color: white;">
+    {{ color }} background
+  </div>
+</div>

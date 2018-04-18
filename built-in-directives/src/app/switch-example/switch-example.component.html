@@ -1,0 +1,11 @@
+<div class="container">
+  <h3>ngSwitch: [ngSwitch]=expression => *ngSwitchCase=case</h3>
+  <div class="container" [ngSwitch]="x">
+    <p *ngSwitchCase="1">x = 1</p>
+    <p *ngSwitchCase="2">x = 2</p>
+    <p *ngSwitchCase="3">x = 3</p>
+    <p *ngSwitchCase="4">x = 4</p>
+    <p *ngSwitchDefault>x = 0</p>
+  </div>
+  <button (click)="toggleCase()">Toggle!</button>
+</div>
