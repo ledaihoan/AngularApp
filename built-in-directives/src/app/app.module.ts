@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { IfExampleComponent } from './if-example/if-example.component';
 import { SwitchExampleComponent } from './switch-example/switch-example.component';
 import { NgStyleExampleComponent } from './ng-style-example/ng-style-example.component';
+import { NgClassExampleComponent } from './ng-class-example/ng-class-example.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -13,10 +15,12 @@ import { NgStyleExampleComponent } from './ng-style-example/ng-style-example.com
     AppComponent,
     IfExampleComponent,
     SwitchExampleComponent,
-    NgStyleExampleComponent
+    NgStyleExampleComponent,
+    NgClassExampleComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,10 @@
+<p></p>
+<h2>ngClass examples</h2>
+<p><b> Using [ngClass]=simpleExpression</b></p>
+<div [ngClass]="{bordered: true}">This is always bordered</div>
+<div [ngClass]="{bordered: false}">This is never bordered</div>
+<div [ngClass]="{bordered: isBordered}">
+  <label for="toggleBorder">Toggle border</label>
+  <input type="checkbox" id="toggleBorder" [(ngModel)]="isBordered">
+  {{isBordered}}
+</div>
