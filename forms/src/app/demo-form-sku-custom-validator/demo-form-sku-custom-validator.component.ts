@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 
+
+export function CustomSkuValidator(control: AbstractControl): { [s: string]: boolean } | null{
+  if (!control.value.match(/^123/)) {
+    return { invalidSku: true };
+  }
+  return null;
+}
 @Component({
   selector: 'app-demo-form-sku-custom-validator',
   templateUrl: './demo-form-sku-custom-validator.component.html',
@@ -8,14 +15,14 @@ import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Valid
 })
 export class DemoFormSkuCustomValidatorComponent implements OnInit {
   myForm: FormGroup;
+  sku: AbstractControl;
   constructor(fb: FormBuilder) {
     this.myForm = fb.group({
-      'sku': ['', Validators.compose([Validators.required, function(control: AbstractControl) {
-        if (!control.value.match(/^123/)) {
-          return {invalidSku: true};
-        }
-        return null;
-      }])]
+      'sku': ['', Validators.compose([Validators.required, CustomSkuValidator])]
+    });
+    this.sku = this.myForm.controls['sku'];
+    this.sku.valueChanges.subscribe((value: string) => {
+      console.log('Sku value changed to ' + value);
     });
   }
 
