@@ -1,0 +1,10 @@
+<div>
+  <p *ngIf="userName" class="welcome">
+    Welcome {{userName}}
+  </p>
+  <button (click)="signIn()" class="ui button">Sign In</button>
+</div>
+<h2>Inject value using provider</h2>
+<p>Inject API_URL = <a target="_blank" href="{{apiUrl}}">{{apiUrl}}</a></p>
+<code>{{ '{' }}provider: API_URL, useValue: 'https://jsonplaceholder.typicode.com/posts/1'{{ '}' }}</code>
+<p><em><a>... more info, view app.module.ts</a></em></p>

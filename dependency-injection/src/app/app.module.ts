@@ -3,19 +3,21 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { PriceService } from './price.service';
 import { PriceServiceDemoComponent } from './price-service-demo/price-service-demo.component';
+import { UserService } from './user.service';
+import { UserDemoComponent } from './user-demo/user-demo.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PriceServiceDemoComponent
+    PriceServiceDemoComponent,
+    UserDemoComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [PriceService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [UserService, { provide: 'API_URL', useValue: 'https://jsonplaceholder.typicode.com/posts/1' }]
 })
 export class AppModule { }
